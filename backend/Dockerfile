@@ -16,6 +16,10 @@ COPY backend/ .
 # Set environment for build
 ENV NODE_ENV=production
 
+# Admin build control (set to "true" to disable admin panel)
+ARG DISABLE_ADMIN=false
+ENV DISABLE_ADMIN=$DISABLE_ADMIN
+
 # Build backend and admin
 RUN npm run build
 

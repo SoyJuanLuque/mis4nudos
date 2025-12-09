@@ -1,7 +1,7 @@
 FROM node:20-alpine
 
 # Install build dependencies
-RUN apk add --no-cache python3 make g++
+RUN apk add --no-cache python3 make g++ && echo "Build v3 - Admin enabled"
 
 WORKDIR /server
 

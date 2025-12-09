@@ -1,7 +1,7 @@
 FROM node:20-alpine
 
 # Install build dependencies
-RUN apk add --no-cache python3 make g++ && echo "Build v4 - Admin forced"
+RUN apk add --no-cache python3 make g++ && echo "Build v5 - Debug"
 
 WORKDIR /server
 
@@ -21,6 +21,9 @@ RUN npm run build
 
 # Expose port
 EXPOSE 9000
+
+# Debug: Show build output structure
+RUN echo "=== Build output ===" && ls -la .medusa/ && ls -la .medusa/server/ && ls -la .medusa/server/public/ 2>/dev/null || echo "No public dir"
 
 # Start script
 CMD ["sh", "-c", "npx medusa db:migrate && npm run start"]

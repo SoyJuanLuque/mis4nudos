@@ -25,5 +25,5 @@ EXPOSE 9000
 # Debug: Show build output structure
 RUN echo "=== Build output ===" && ls -la .medusa/ && ls -la .medusa/server/ && ls -la .medusa/server/public/ 2>/dev/null || echo "No public dir"
 
-# Start script
-CMD ["sh", "-c", "npx medusa db:migrate && npm run start"]
+# Start script - debug paths first
+CMD ["sh", "-c", "echo '=== Runtime check ===' && pwd && ls -la .medusa/server/public/admin/ 2>/dev/null && npx medusa db:migrate && npm run start"]

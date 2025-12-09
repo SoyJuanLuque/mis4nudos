@@ -5,14 +5,15 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-COPY package.json yarn.lock* package-lock.json* ./
+# Paths relative to repo root
+COPY storefront/package.json storefront/yarn.lock* storefront/package-lock.json* ./
 RUN npm install --legacy-peer-deps
 
 # Rebuild the source code only when needed
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-COPY . .
+COPY storefront/ .
 
 # Build arguments for environment variables
 ARG MEDUSA_BACKEND_URL

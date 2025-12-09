@@ -17,6 +17,5 @@ module.exports = defineConfig({
   },
   admin: {
     backendUrl: process.env.MEDUSA_BACKEND_URL || "https://api.mis4nudos.com",
-    disable: process.env.DISABLE_ADMIN === "true",
   },
 })

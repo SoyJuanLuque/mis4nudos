@@ -1,7 +1,7 @@
 FROM node:20-alpine
 
 # Install build dependencies
-RUN apk add --no-cache python3 make g++ && echo "Build v3 - Admin enabled"
+RUN apk add --no-cache python3 make g++ && echo "Build v4 - Admin forced"
 
 WORKDIR /server
 
@@ -15,10 +15,6 @@ COPY backend/ .
 
 # Set environment for build
 ENV NODE_ENV=production
-
-# Admin build control (set to "true" to disable admin panel)
-ARG DISABLE_ADMIN=false
-ENV DISABLE_ADMIN=$DISABLE_ADMIN
 
 # Build backend and admin
 RUN npm run build

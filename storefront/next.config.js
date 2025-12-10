@@ -33,6 +33,14 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "api.mis4nudos.com",
+      },
+      {
+        protocol: "https",
+        hostname: "mis4nudos.com",
+      },
+      {
+        protocol: "https",
         hostname: "medusa-public-images.s3.eu-west-1.amazonaws.com",
       },
       {

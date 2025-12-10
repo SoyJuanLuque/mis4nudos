@@ -1,12 +1,10 @@
 import { Metadata } from "next"
-import { Suspense } from "react"
 
 import Hero from "@modules/home/components/hero"
 import { getRegion } from "@lib/data/regions"
-import { listCategories } from "@lib/data/categories"
-import PaginatedProducts from "@modules/store/templates/paginated-products"
-import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
+import { listProducts } from "@lib/data/products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import ProductPreview from "@modules/products/components/product-preview"
 
 export const metadata: Metadata = {
   title: "Mis 4 Nudos | Macrame Artesanal",
@@ -20,43 +18,27 @@ export default async function Home(props: {
   const params = await props.params
   const { countryCode } = params
 
-  const [region, categories] = await Promise.all([
-    getRegion(countryCode),
-    listCategories()
-  ])
+  const region = await getRegion(countryCode)
 
   if (!region) {
     return null
   }
 
-  const rootCategories = categories?.filter(c => !c.parent_category) || []
+  // Obtener productos (max 10)
+  const { response } = await listProducts({
+    pageParam: 1,
+    countryCode,
+    queryParams: { limit: 10 }
+  })
+
+  const products = response.products
 
   return (
     <>
       <Hero />
 
-      {/* Categorias destacadas */}
-      <div className="bg-[#F5F1ED] py-8">
-        <div className="content-container">
-          <h2 className="text-xl font-semibold text-[#6B5344] text-center mb-6">
-            Explora nuestras categorias
-          </h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            {rootCategories.map((category) => (
-              <LocalizedClientLink
-                key={category.id}
-                href={`/categories/${category.handle}`}
-                className="px-6 py-3 bg-white text-[#6B5344] rounded-full shadow-sm hover:shadow-md hover:bg-[#6B5344] hover:text-white transition-all duration-200 font-medium"
-              >
-                {category.name}
-              </LocalizedClientLink>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Productos destacados */}
-      <div className="py-10">
+      {/* Productos en fila horizontal con scroll */}
+      <div className="py-8">
         <div className="content-container">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-semibold text-[#6B5344]">
@@ -69,13 +51,17 @@ export default async function Home(props: {
               Ver todos →
             </LocalizedClientLink>
           </div>
-          <Suspense fallback={<SkeletonProductGrid />}>
-            <PaginatedProducts
-              sortBy="created_at"
-              page={1}
-              countryCode={countryCode}
-            />
-          </Suspense>
+
+          {/* Scroll horizontal */}
+          <div className="overflow-x-auto no-scrollbar -mx-6 px-6">
+            <div className="flex gap-4" style={{ width: 'max-content' }}>
+              {products.map((product) => (
+                <div key={product.id} className="w-[280px] flex-shrink-0">
+                  <ProductPreview product={product} region={region} />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </>

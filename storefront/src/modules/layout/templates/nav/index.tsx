@@ -17,14 +17,9 @@ export default async function Nav() {
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
+      <header className="relative h-20 mx-auto border-b duration-200 bg-white border-ui-border-base">
         <nav className="content-container txt-xsmall-plus text-[#6B5344] flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex-1 basis-0 h-full flex items-center">
-            <div className="h-full">
-              <SideMenu regions={regions} />
-            </div>
-          </div>
-
+          {/* Logo a la izquierda - grande */}
           <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
@@ -34,28 +29,30 @@ export default async function Nav() {
               <Image
                 src="/logo.png"
                 alt="Mis 4 Nudos"
-                width={220}
-                height={88}
-                className="h-20 w-auto -my-2"
+                width={180}
+                height={72}
+                className="h-16 w-auto"
                 priority
               />
             </LocalizedClientLink>
           </div>
 
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
-              <LocalizedClientLink
-                className="hover:text-[#8B7355]"
-                href="/account"
-                data-testid="nav-account-link"
-              >
-                Mi Cuenta
-              </LocalizedClientLink>
-            </div>
+          {/* Menu derecha */}
+          <div className="flex items-center gap-x-4 sm:gap-x-6 h-full">
+            {/* Mi Cuenta - solo desktop */}
+            <LocalizedClientLink
+              className="hidden sm:block hover:text-[#8B7355] font-medium"
+              href="/account"
+              data-testid="nav-account-link"
+            >
+              Mi Cuenta
+            </LocalizedClientLink>
+
+            {/* Carrito */}
             <Suspense
               fallback={
                 <LocalizedClientLink
-                  className="hover:text-[#8B7355] flex gap-2"
+                  className="hover:text-[#8B7355] flex gap-2 font-medium"
                   href="/cart"
                   data-testid="nav-cart-link"
                 >
@@ -65,6 +62,11 @@ export default async function Nav() {
             >
               <CartButton />
             </Suspense>
+
+            {/* Hamburguesa solo mobile */}
+            <div className="sm:hidden">
+              <SideMenu regions={regions} />
+            </div>
           </div>
         </nav>
       </header>

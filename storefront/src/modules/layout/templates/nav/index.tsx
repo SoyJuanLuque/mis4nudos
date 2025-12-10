@@ -2,13 +2,18 @@ import { Suspense } from "react"
 import Image from "next/image"
 
 import { listRegions } from "@lib/data/regions"
+import { listCategories } from "@lib/data/categories"
 import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
+import CategoryBar from "@modules/layout/components/category-bar"
 
 export default async function Nav() {
-  const regions = await listRegions().then((regions: StoreRegion[]) => regions)
+  const [regions, categories] = await Promise.all([
+    listRegions().then((regions: StoreRegion[]) => regions),
+    listCategories()
+  ])
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
@@ -63,6 +68,7 @@ export default async function Nav() {
           </div>
         </nav>
       </header>
+      <CategoryBar categories={categories} />
     </div>
   )
 }

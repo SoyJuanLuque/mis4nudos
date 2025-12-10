@@ -3,7 +3,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 
 const Hero = () => {
   return (
-    <div className="relative h-[85vh] w-full overflow-hidden">
+    <div className="relative h-[50vh] min-h-[400px] max-h-[500px] w-full overflow-hidden">
       {/* Background Image */}
       <Image
         src="/hero-bg.jpg"
@@ -53,15 +53,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Decorative element */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="flex flex-col items-center text-[#8B7355]">
-          <span className="text-xs tracking-widest mb-2">DESCUBRE MÁS</span>
-          <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
-      </div>
     </div>
   )
 }

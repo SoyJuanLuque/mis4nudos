@@ -1,8 +1,8 @@
 import { Suspense } from "react"
 
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
-import RefinementList from "@modules/store/components/refinement-list"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import SortProducts from "@modules/store/components/refinement-list/sort-products"
 
 import PaginatedProducts from "./paginated-products"
 
@@ -19,15 +19,27 @@ const StoreTemplate = ({
   const sort = sortBy || "created_at"
 
   return (
-    <div
-      className="flex flex-col small:flex-row small:items-start py-6 content-container"
-      data-testid="category-container"
-    >
-      <RefinementList sortBy={sort} />
-      <div className="w-full">
-        <div className="mb-8 text-2xl-semi">
-          <h1 data-testid="store-page-title">Todos los productos</h1>
+    <div className="w-full" data-testid="category-container">
+      {/* Header con titulo y ordenar */}
+      <div className="content-container py-4 border-b border-gray-100">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-semibold text-[#6B5344]" data-testid="store-page-title">
+              Todos los productos
+            </h1>
+            <p className="text-sm text-gray-500 mt-1">
+              Descubre nuestras creaciones artesanales de macrame
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-gray-500">Ordenar:</span>
+            <SortDropdown sortBy={sort} />
+          </div>
         </div>
+      </div>
+
+      {/* Grid de productos */}
+      <div className="content-container py-6">
         <Suspense fallback={<SkeletonProductGrid />}>
           <PaginatedProducts
             sortBy={sort}
@@ -37,6 +49,27 @@ const StoreTemplate = ({
         </Suspense>
       </div>
     </div>
+  )
+}
+
+// Dropdown simple para ordenar
+const SortDropdown = ({ sortBy }: { sortBy: SortOptions }) => {
+  return (
+    <form action="" method="GET">
+      <select
+        name="sortBy"
+        defaultValue={sortBy}
+        onChange={(e) => {
+          const form = e.target.form
+          if (form) form.submit()
+        }}
+        className="text-sm border border-gray-200 rounded-lg px-3 py-2 bg-white text-[#6B5344] focus:outline-none focus:ring-2 focus:ring-[#6B5344]/20 cursor-pointer"
+      >
+        <option value="created_at">Mas recientes</option>
+        <option value="price_asc">Precio: Menor a Mayor</option>
+        <option value="price_desc">Precio: Mayor a Menor</option>
+      </select>
+    </form>
   )
 }
 

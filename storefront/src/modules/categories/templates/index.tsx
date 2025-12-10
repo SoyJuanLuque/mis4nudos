@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
 
-import InteractiveLink from "@modules/common/components/interactive-link"
 import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import SortDropdown from "@modules/store/components/sort-dropdown"
 import PaginatedProducts from "@modules/store/templates/paginated-products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
@@ -77,26 +77,5 @@ export default function CategoryTemplate({
         </Suspense>
       </div>
     </div>
-  )
-}
-
-// Dropdown simple para ordenar
-const SortDropdown = ({ sortBy }: { sortBy: SortOptions }) => {
-  return (
-    <form action="" method="GET">
-      <select
-        name="sortBy"
-        defaultValue={sortBy}
-        onChange={(e) => {
-          const form = e.target.form
-          if (form) form.submit()
-        }}
-        className="text-sm border border-gray-200 rounded-lg px-3 py-2 bg-white text-[#6B5344] focus:outline-none focus:ring-2 focus:ring-[#6B5344]/20 cursor-pointer"
-      >
-        <option value="created_at">Mas recientes</option>
-        <option value="price_asc">Precio: Menor a Mayor</option>
-        <option value="price_desc">Precio: Mayor a Menor</option>
-      </select>
-    </form>
   )
 }

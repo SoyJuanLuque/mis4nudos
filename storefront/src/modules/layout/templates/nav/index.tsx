@@ -32,7 +32,7 @@ export default async function Nav() {
             data-testid="nav-store-link"
           >
             <Image
-              src="/logo.png"
+              src="/logo-2.png"
               alt="Mis 4 Nudos"
               width={280}
               height={100}

@@ -17,6 +17,7 @@ const SideMenuItems = {
   "Accesorios": "/categories/accesorios",
   "Bebé": "/categories/bebe",
   "Hogar": "/categories/hogar",
+  "Navidad": "/categories/navidad",
   "Mi Cuenta": "/account",
   "Carrito": "/cart",
 }

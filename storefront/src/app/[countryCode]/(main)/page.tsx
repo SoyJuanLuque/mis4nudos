@@ -6,9 +6,9 @@ import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Mis 4 Nudos | Macramé Artesanal",
   description:
-    "A performant frontend ecommerce starter template with Next.js 15 and Medusa.",
+    "Creaciones artesanales de macramé hechas con amor. Decoración para el hogar, regalos personalizados y accesorios únicos tejidos a mano en España.",
 }
 
 export default async function Home(props: {

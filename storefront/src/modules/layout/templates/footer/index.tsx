@@ -21,9 +21,9 @@ export default async function Footer() {
               <Image
                 src="/logo.png"
                 alt="Mis 4 Nudos"
-                width={150}
-                height={60}
-                className="h-16 w-auto"
+                width={200}
+                height={80}
+                className="h-20 w-auto"
               />
             </LocalizedClientLink>
             <p className="text-[#8B7355] text-sm leading-relaxed">

@@ -133,7 +133,6 @@ export default function ProductActions({
     })
 
     setIsAdding(false)
-    router.refresh() // Actualizar componentes del servidor (carrito)
   }
 
   return (

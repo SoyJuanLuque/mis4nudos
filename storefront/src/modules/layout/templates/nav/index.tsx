@@ -18,8 +18,16 @@ export default async function Nav() {
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
       {/* Header con icono + letras del logo */}
-      <header className="relative mx-auto bg-white border-b border-ui-border-base">
-        <div className="content-container py-4 flex items-center justify-center">
+      <header className="relative mx-auto border-b border-ui-border-base overflow-hidden">
+        {/* Imagen de fondo */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/foto-header.svg')" }}
+        />
+        {/* Overlay semi-transparente para que el logo se vea bien */}
+        <div className="absolute inset-0 bg-white/80" />
+        {/* Contenido */}
+        <div className="relative content-container py-4 flex items-center justify-center">
           <LocalizedClientLink
             href="/"
             className="hover:opacity-80 transition-opacity flex items-center gap-1"

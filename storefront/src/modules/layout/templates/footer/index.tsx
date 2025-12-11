@@ -19,7 +19,7 @@ export default async function Footer() {
           <div className="max-w-xs">
             <LocalizedClientLink href="/" className="inline-block mb-4">
               <Image
-                src="/logo-2.png"
+                src="/Mis4nudos-logo-y-letra.svg"
                 alt="Mis 4 Nudos"
                 width={200}
                 height={80}

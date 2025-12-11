@@ -27,7 +27,7 @@ export default async function Nav() {
           >
             {/* Icono del logo */}
             <Image
-              src="/Solo-Logo-Mis4nudos.png"
+              src="/Mis4nudos-logo.svg"
               alt="Mis 4 Nudos"
               width={80}
               height={80}
@@ -36,7 +36,7 @@ export default async function Nav() {
             />
             {/* Letras del logo */}
             <Image
-              src="/logo-solo-letra.png"
+              src="/Mis4nudos-letra.svg"
               alt="Mis 4 Nudos"
               width={200}
               height={60}

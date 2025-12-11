@@ -24,7 +24,7 @@ const StoreTemplate = ({
       <div className="content-container py-4 border-b border-gray-100">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-semibold text-[#6B5344]" data-testid="store-page-title">
+            <h1 className="text-2xl font-semibold text-[#7f5835]" data-testid="store-page-title">
               Todos los productos
             </h1>
             <p className="text-sm text-gray-500 mt-1">

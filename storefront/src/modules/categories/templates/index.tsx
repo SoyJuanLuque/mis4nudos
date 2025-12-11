@@ -30,7 +30,7 @@ export default function CategoryTemplate({
       <div className="content-container py-4 border-b border-gray-100">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-semibold text-[#6B5344]" data-testid="category-page-title">
+            <h1 className="text-2xl font-semibold text-[#7f5835]" data-testid="category-page-title">
               {category.name}
             </h1>
             {category.description && (
@@ -50,7 +50,7 @@ export default function CategoryTemplate({
               <LocalizedClientLink
                 key={c.id}
                 href={`/categories/${c.handle}`}
-                className="px-3 py-1.5 text-sm bg-[#F5F1ED] text-[#6B5344] rounded-full hover:bg-[#6B5344] hover:text-white transition-colors"
+                className="px-3 py-1.5 text-sm bg-[#fdf4e5] text-[#7f5835] rounded-full hover:bg-[#7f5835] hover:text-white transition-colors"
               >
                 {c.name}
               </LocalizedClientLink>

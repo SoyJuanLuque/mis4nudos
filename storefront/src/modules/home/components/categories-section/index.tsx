@@ -49,7 +49,7 @@ const CategoriesSection = () => {
       <div className="content-container">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-light text-[#6B5344] mb-4">
+          <h2 className="text-3xl md:text-4xl font-light text-[#7f5835] mb-4">
             Encuentra lo que buscas
           </h2>
           <p className="text-[#8B7355] text-lg max-w-2xl mx-auto">
@@ -63,12 +63,12 @@ const CategoriesSection = () => {
             <LocalizedClientLink
               key={category.name}
               href={category.href}
-              className="group bg-[#F5F0E8] rounded-xl p-6 md:p-8 text-center hover:bg-[#6B5344] transition-all duration-300 hover:shadow-lg"
+              className="group bg-[#fdf4e5] rounded-xl p-6 md:p-8 text-center hover:bg-[#7f5835] transition-all duration-300 hover:shadow-lg"
             >
-              <div className="text-[#6B5344] group-hover:text-white mb-4 flex justify-center transition-colors">
+              <div className="text-[#7f5835] group-hover:text-white mb-4 flex justify-center transition-colors">
                 {category.icon}
               </div>
-              <h3 className="text-lg font-semibold text-[#6B5344] group-hover:text-white mb-2 transition-colors">
+              <h3 className="text-lg font-semibold text-[#7f5835] group-hover:text-white mb-2 transition-colors">
                 {category.name}
               </h3>
               <p className="text-sm text-[#8B7355] group-hover:text-white/80 transition-colors">
@@ -82,7 +82,7 @@ const CategoriesSection = () => {
         <div className="text-center mt-10">
           <LocalizedClientLink
             href="/store"
-            className="inline-flex items-center gap-2 text-[#6B5344] font-medium hover:text-[#8B7355] transition-colors"
+            className="inline-flex items-center gap-2 text-[#7f5835] font-medium hover:text-[#8B7355] transition-colors"
           >
             Ver todos los productos
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

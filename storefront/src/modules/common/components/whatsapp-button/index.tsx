@@ -14,7 +14,7 @@ const WhatsAppButton = () => {
       aria-label="Contactar por WhatsApp"
     >
       {/* Tooltip en hover */}
-      <span className="hidden group-hover:block absolute right-full mr-3 bg-white text-[#6B5344] text-sm px-3 py-2 rounded-lg shadow-md whitespace-nowrap">
+      <span className="hidden group-hover:block absolute right-full mr-3 bg-white text-[#7f5835] text-sm px-3 py-2 rounded-lg shadow-md whitespace-nowrap">
         ¿Tienes dudas? Escríbenos
       </span>
 

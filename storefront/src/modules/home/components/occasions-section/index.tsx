@@ -51,10 +51,10 @@ const OccasionsSection = () => {
       <div className="content-container">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="inline-block bg-[#6B5344]/10 text-[#6B5344] text-xs font-medium tracking-widest uppercase px-4 py-2 rounded-full mb-4">
+          <span className="inline-block bg-[#7f5835]/10 text-[#7f5835] text-xs font-medium tracking-widest uppercase px-4 py-2 rounded-full mb-4">
             Para cada momento
           </span>
-          <h2 className="text-3xl md:text-4xl font-light text-[#6B5344] mb-4">
+          <h2 className="text-3xl md:text-4xl font-light text-[#7f5835] mb-4">
             ¿Qué celebras?
           </h2>
           <p className="text-[#8B7355] text-lg max-w-2xl mx-auto">
@@ -72,7 +72,7 @@ const OccasionsSection = () => {
               <span className="text-4xl mb-4 block group-hover:scale-110 transition-transform">
                 {occasion.emoji}
               </span>
-              <h3 className="text-lg font-semibold text-[#6B5344] mb-2">
+              <h3 className="text-lg font-semibold text-[#7f5835] mb-2">
                 {occasion.title}
               </h3>
               <p className="text-sm text-[#8B7355]">
@@ -84,8 +84,8 @@ const OccasionsSection = () => {
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <div className="bg-[#F5F0E8] rounded-xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-xl font-semibold text-[#6B5344] mb-3">
+          <div className="bg-[#fdf4e5] rounded-xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-xl font-semibold text-[#7f5835] mb-3">
               ¿Tienes un evento especial?
             </h3>
             <p className="text-[#8B7355] mb-6">

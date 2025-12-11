@@ -11,9 +11,9 @@ export default function TermsPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="bg-[#F5F0E8] py-16">
+      <div className="bg-[#fdf4e5] py-16">
         <div className="content-container">
-          <h1 className="text-4xl md:text-5xl font-semibold text-[#6B5344] text-center mb-4">
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#7f5835] text-center mb-4">
             Términos y Condiciones
           </h1>
           <p className="text-[#8B7355] text-center text-lg max-w-2xl mx-auto">
@@ -32,19 +32,19 @@ export default function TermsPage() {
 
           {/* 1. Información general */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-xl font-semibold text-[#7f5835] mb-4">
               1. Información general
             </h2>
-            <div className="bg-[#F5F0E8] p-4 rounded-lg text-[#8B7355]">
-              <p><strong className="text-[#6B5344]">Titular:</strong> Lidia Gómez García</p>
-              <p><strong className="text-[#6B5344]">Domicilio:</strong> Rincón de la Victoria, Málaga</p>
-              <p><strong className="text-[#6B5344]">Email:</strong> hola@mis4nudos.com</p>
+            <div className="bg-[#fdf4e5] p-4 rounded-lg text-[#8B7355]">
+              <p><strong className="text-[#7f5835]">Titular:</strong> Lidia Gómez García</p>
+              <p><strong className="text-[#7f5835]">Domicilio:</strong> Rincón de la Victoria, Málaga</p>
+              <p><strong className="text-[#7f5835]">Email:</strong> hola@mis4nudos.com</p>
             </div>
           </section>
 
           {/* 2. Objeto */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-xl font-semibold text-[#7f5835] mb-4">
               2. Objeto
             </h2>
             <p className="text-[#8B7355]">
@@ -55,11 +55,11 @@ export default function TermsPage() {
 
           {/* 3. Productos */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-xl font-semibold text-[#7f5835] mb-4">
               3. Productos
             </h2>
 
-            <h3 className="text-lg font-medium text-[#6B5344] mb-2">
+            <h3 className="text-lg font-medium text-[#7f5835] mb-2">
               3.1 Naturaleza artesanal
             </h3>
             <div className="bg-[#FEF3C7] border border-[#F59E0B] p-4 rounded-lg mb-4">
@@ -70,7 +70,7 @@ export default function TermsPage() {
               </p>
             </div>
 
-            <h3 className="text-lg font-medium text-[#6B5344] mb-2">
+            <h3 className="text-lg font-medium text-[#7f5835] mb-2">
               3.2 Colores y materiales
             </h3>
             <p className="text-[#8B7355] mb-4">
@@ -78,7 +78,7 @@ export default function TermsPage() {
               respecto al producto real debido a la configuración de pantallas.
             </p>
 
-            <h3 className="text-lg font-medium text-[#6B5344] mb-2">
+            <h3 className="text-lg font-medium text-[#7f5835] mb-2">
               3.3 Productos personalizados
             </h3>
             <p className="text-[#8B7355]">
@@ -90,28 +90,28 @@ export default function TermsPage() {
 
           {/* 4. Proceso de compra */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-xl font-semibold text-[#7f5835] mb-4">
               4. Proceso de compra
             </h2>
             <ol className="text-[#8B7355] space-y-2">
               <li className="flex gap-2">
-                <span className="text-[#6B5344] font-medium">1.</span>
+                <span className="text-[#7f5835] font-medium">1.</span>
                 Selecciona los productos
               </li>
               <li className="flex gap-2">
-                <span className="text-[#6B5344] font-medium">2.</span>
+                <span className="text-[#7f5835] font-medium">2.</span>
                 Añádelos al carrito
               </li>
               <li className="flex gap-2">
-                <span className="text-[#6B5344] font-medium">3.</span>
+                <span className="text-[#7f5835] font-medium">3.</span>
                 Completa tus datos de envío
               </li>
               <li className="flex gap-2">
-                <span className="text-[#6B5344] font-medium">4.</span>
+                <span className="text-[#7f5835] font-medium">4.</span>
                 Realiza el pago
               </li>
               <li className="flex gap-2">
-                <span className="text-[#6B5344] font-medium">5.</span>
+                <span className="text-[#7f5835] font-medium">5.</span>
                 Recibirás confirmación por email
               </li>
             </ol>
@@ -119,7 +119,7 @@ export default function TermsPage() {
 
           {/* 5. Precios y pagos */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-xl font-semibold text-[#7f5835] mb-4">
               5. Precios y pagos
             </h2>
             <ul className="text-[#8B7355] space-y-1">
@@ -131,12 +131,12 @@ export default function TermsPage() {
 
           {/* 6. Envíos */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-xl font-semibold text-[#7f5835] mb-4">
               6. Envíos
             </h2>
             <p className="text-[#8B7355]">
               Consulta nuestra página de{" "}
-              <LocalizedClientLink href="/shipping" className="text-[#6B5344] underline">
+              <LocalizedClientLink href="/shipping" className="text-[#7f5835] underline">
                 Información de Envíos
               </LocalizedClientLink>{" "}
               para detalles completos sobre plazos, costes y zonas de entrega.
@@ -145,12 +145,12 @@ export default function TermsPage() {
 
           {/* 7. Devoluciones */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-xl font-semibold text-[#7f5835] mb-4">
               7. Devoluciones
             </h2>
             <p className="text-[#8B7355]">
               Consulta nuestra página de{" "}
-              <LocalizedClientLink href="/returns" className="text-[#6B5344] underline">
+              <LocalizedClientLink href="/returns" className="text-[#7f5835] underline">
                 Devoluciones y Cambios
               </LocalizedClientLink>{" "}
               para conocer nuestra política de devoluciones.
@@ -159,7 +159,7 @@ export default function TermsPage() {
 
           {/* 8. Propiedad intelectual */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-xl font-semibold text-[#7f5835] mb-4">
               8. Propiedad intelectual
             </h2>
             <p className="text-[#8B7355] mb-4">
@@ -176,7 +176,7 @@ export default function TermsPage() {
 
           {/* 9. Responsabilidad */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-xl font-semibold text-[#7f5835] mb-4">
               9. Responsabilidad
             </h2>
             <p className="text-[#8B7355] mb-2">Mis 4 Nudos no se hace responsable de:</p>
@@ -189,7 +189,7 @@ export default function TermsPage() {
 
           {/* 10. Legislación */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-xl font-semibold text-[#7f5835] mb-4">
               10. Legislación aplicable
             </h2>
             <p className="text-[#8B7355]">
@@ -200,19 +200,19 @@ export default function TermsPage() {
 
           {/* 11. Contacto */}
           <section className="mb-8">
-            <h2 className="text-xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-xl font-semibold text-[#7f5835] mb-4">
               11. Contacto
             </h2>
             <p className="text-[#8B7355]">
               Para cualquier consulta sobre estos términos, escríbenos a:{" "}
-              <a href="mailto:hola@mis4nudos.com" className="text-[#6B5344] underline">
+              <a href="mailto:hola@mis4nudos.com" className="text-[#7f5835] underline">
                 hola@mis4nudos.com
               </a>
             </p>
           </section>
 
           {/* Aceptación */}
-          <div className="bg-[#F5F0E8] p-6 rounded-lg text-center">
+          <div className="bg-[#fdf4e5] p-6 rounded-lg text-center">
             <p className="text-[#8B7355] text-sm">
               Al realizar una compra en mis4nudos.com, aceptas estos términos y condiciones.
             </p>

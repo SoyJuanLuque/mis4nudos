@@ -14,19 +14,19 @@ const Hero = () => {
       />
 
       {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#F5F0E8]/95 via-[#F5F0E8]/80 to-[#F5F0E8]/40 md:to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#fdf4e5]/95 via-[#fdf4e5]/80 to-[#fdf4e5]/40 md:to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center py-16 md:py-20">
         <div className="content-container">
           <div className="max-w-xl">
             {/* Badge */}
-            <span className="inline-block bg-[#6B5344]/10 text-[#6B5344] text-xs font-medium tracking-widest uppercase px-4 py-2 rounded-full mb-6">
+            <span className="inline-block bg-[#7f5835]/10 text-[#7f5835] text-xs font-medium tracking-widest uppercase px-4 py-2 rounded-full mb-6">
               Artesanía con alma
             </span>
 
             {/* Main headline - emotional */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#6B5344] leading-tight mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#7f5835] leading-tight mb-4">
               Regalos que
               <span className="block font-semibold">emocionan</span>
             </h1>
@@ -47,7 +47,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <LocalizedClientLink
                 href="/store"
-                className="inline-flex items-center justify-center px-8 py-4 bg-[#6B5344] text-white font-medium rounded-lg hover:bg-[#8B7355] transition-colors shadow-md"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#7f5835] text-white font-medium rounded-lg hover:bg-[#8B7355] transition-colors shadow-md"
               >
                 Ver Colección
               </LocalizedClientLink>
@@ -68,19 +68,19 @@ const Hero = () => {
             {/* Trust badges */}
             <div className="flex flex-wrap gap-6 mt-8 pt-8 border-t border-[#E5DDD0]">
               <div className="flex items-center gap-2 text-sm text-[#8B7355]">
-                <svg className="w-5 h-5 text-[#6B5344]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#7f5835]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
                 Hecho a mano
               </div>
               <div className="flex items-center gap-2 text-sm text-[#8B7355]">
-                <svg className="w-5 h-5 text-[#6B5344]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#7f5835]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
                 Personalizable
               </div>
               <div className="flex items-center gap-2 text-sm text-[#8B7355]">
-                <svg className="w-5 h-5 text-[#6B5344]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#7f5835]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Entrega rápida

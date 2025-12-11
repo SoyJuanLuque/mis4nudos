@@ -10,9 +10,9 @@ export default function ContactPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="bg-[#F5F0E8] py-16">
+      <div className="bg-[#fdf4e5] py-16">
         <div className="content-container">
-          <h1 className="text-4xl md:text-5xl font-semibold text-[#6B5344] text-center mb-4">
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#7f5835] text-center mb-4">
             Contacto
           </h1>
           <p className="text-[#8B7355] text-center text-lg max-w-2xl mx-auto">
@@ -27,7 +27,7 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Contact Info */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#6B5344] mb-6">
+              <h2 className="text-2xl font-semibold text-[#7f5835] mb-6">
                 Escríbeme
               </h2>
 
@@ -36,7 +36,7 @@ export default function ContactPage() {
                 href="https://wa.me/34658989743"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 p-4 bg-[#F5F0E8] rounded-lg mb-4 hover:bg-[#E5DDD0] transition-colors"
+                className="flex items-center gap-4 p-4 bg-[#fdf4e5] rounded-lg mb-4 hover:bg-[#E5DDD0] transition-colors"
               >
                 <div className="w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -44,7 +44,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-semibold text-[#6B5344]">WhatsApp</p>
+                  <p className="font-semibold text-[#7f5835]">WhatsApp</p>
                   <p className="text-[#8B7355] text-sm">+34 658 989 743</p>
                   <p className="text-[#25D366] text-xs">Respuesta rápida</p>
                 </div>
@@ -53,15 +53,15 @@ export default function ContactPage() {
               {/* Email */}
               <a
                 href="mailto:hola@mis4nudos.com"
-                className="flex items-center gap-4 p-4 bg-[#F5F0E8] rounded-lg mb-4 hover:bg-[#E5DDD0] transition-colors"
+                className="flex items-center gap-4 p-4 bg-[#fdf4e5] rounded-lg mb-4 hover:bg-[#E5DDD0] transition-colors"
               >
-                <div className="w-12 h-12 bg-[#6B5344] rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-[#7f5835] rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <p className="font-semibold text-[#6B5344]">Email</p>
+                  <p className="font-semibold text-[#7f5835]">Email</p>
                   <p className="text-[#8B7355] text-sm">hola@mis4nudos.com</p>
                 </div>
               </a>
@@ -71,7 +71,7 @@ export default function ContactPage() {
                 href="https://instagram.com/mis4nudos"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-4 p-4 bg-[#F5F0E8] rounded-lg mb-4 hover:bg-[#E5DDD0] transition-colors"
+                className="flex items-center gap-4 p-4 bg-[#fdf4e5] rounded-lg mb-4 hover:bg-[#E5DDD0] transition-colors"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -79,14 +79,14 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-semibold text-[#6B5344]">Instagram</p>
+                  <p className="font-semibold text-[#7f5835]">Instagram</p>
                   <p className="text-[#8B7355] text-sm">@mis4nudos</p>
                 </div>
               </a>
 
               {/* Horario */}
               <div className="mt-8">
-                <h3 className="font-semibold text-[#6B5344] mb-3">Horario de atención</h3>
+                <h3 className="font-semibold text-[#7f5835] mb-3">Horario de atención</h3>
                 <ul className="text-[#8B7355] text-sm space-y-1">
                   <li>Lunes a Viernes: 10:00 - 19:00</li>
                   <li>Sábados: 10:00 - 14:00</li>
@@ -96,7 +96,7 @@ export default function ContactPage() {
 
               {/* Ubicación */}
               <div className="mt-8">
-                <h3 className="font-semibold text-[#6B5344] mb-3">Ubicación</h3>
+                <h3 className="font-semibold text-[#7f5835] mb-3">Ubicación</h3>
                 <p className="text-[#8B7355] text-sm">
                   Rincón de la Victoria, Málaga (España)
                 </p>
@@ -109,15 +109,15 @@ export default function ContactPage() {
 
             {/* Pedidos personalizados */}
             <div>
-              <h2 className="text-2xl font-semibold text-[#6B5344] mb-6">
+              <h2 className="text-2xl font-semibold text-[#7f5835] mb-6">
                 Pedidos personalizados
               </h2>
 
-              <div className="bg-[#F5F0E8] p-6 rounded-lg mb-6">
+              <div className="bg-[#fdf4e5] p-6 rounded-lg mb-6">
                 <p className="text-[#8B7355] mb-4">
                   Para pedidos personalizados o encargos especiales, cuéntame:
                 </p>
-                <ul className="text-[#6B5344] space-y-2">
+                <ul className="text-[#7f5835] space-y-2">
                   <li className="flex items-start gap-2">
                     <span className="text-[#8B7355]">•</span>
                     Qué tipo de pieza buscas
@@ -153,7 +153,7 @@ export default function ContactPage() {
               {/* Nota */}
               <div className="mt-8 p-4 border border-[#E5DDD0] rounded-lg">
                 <p className="text-[#8B7355] text-sm">
-                  <strong className="text-[#6B5344]">Nota:</strong> Cada pieza es hecha a mano
+                  <strong className="text-[#7f5835]">Nota:</strong> Cada pieza es hecha a mano
                   con dedicación. Los tiempos de elaboración varían según la complejidad del
                   pedido. Te informaré del plazo estimado cuando me cuentes tu idea.
                 </p>

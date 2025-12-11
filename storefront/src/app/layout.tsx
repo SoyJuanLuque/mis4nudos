@@ -96,7 +96,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         <StructuredData />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#6B5344" />
+        <meta name="theme-color" content="#7f5835" />
       </head>
       <body>
         <main className="relative">{props.children}</main>

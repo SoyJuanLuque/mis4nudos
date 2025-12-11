@@ -11,9 +11,9 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="bg-[#F5F0E8] py-16">
+      <div className="bg-[#fdf4e5] py-16">
         <div className="content-container">
-          <h1 className="text-4xl md:text-5xl font-semibold text-[#6B5344] text-center mb-4">
+          <h1 className="text-4xl md:text-5xl font-semibold text-[#7f5835] text-center mb-4">
             Nuestra Historia
           </h1>
           <p className="text-[#8B7355] text-center text-lg max-w-2xl mx-auto">
@@ -27,7 +27,7 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto">
           {/* Intro */}
           <div className="mb-12">
-            <p className="text-lg text-[#6B5344] leading-relaxed mb-6">
+            <p className="text-lg text-[#7f5835] leading-relaxed mb-6">
               <strong>Mis 4 Nudos</strong> nace del amor por la artesanía y la necesidad de crear
               con las manos para expresar belleza, conexión y sostenibilidad.
             </p>
@@ -35,7 +35,7 @@ export default function AboutPage() {
 
           {/* Cómo empezó */}
           <div className="mb-12">
-            <h2 className="text-2xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-2xl font-semibold text-[#7f5835] mb-4">
               Cómo empezó todo
             </h2>
             <p className="text-[#8B7355] leading-relaxed mb-4">
@@ -53,7 +53,7 @@ export default function AboutPage() {
 
           {/* Lo que nos mueve */}
           <div className="mb-12">
-            <h2 className="text-2xl font-semibold text-[#6B5344] mb-4">
+            <h2 className="text-2xl font-semibold text-[#7f5835] mb-4">
               Lo que nos mueve
             </h2>
             <p className="text-[#8B7355] leading-relaxed mb-4">
@@ -70,36 +70,36 @@ export default function AboutPage() {
 
           {/* Valores */}
           <div className="mb-12">
-            <h2 className="text-2xl font-semibold text-[#6B5344] mb-6">
+            <h2 className="text-2xl font-semibold text-[#7f5835] mb-6">
               Nuestros valores
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-[#F5F0E8] p-6 rounded-lg">
-                <h3 className="font-semibold text-[#6B5344] mb-2">Pasión</h3>
+              <div className="bg-[#fdf4e5] p-6 rounded-lg">
+                <h3 className="font-semibold text-[#7f5835] mb-2">Pasión</h3>
                 <p className="text-[#8B7355] text-sm">
                   Hacer de mi vocación un modo de vida y transmitirlo en cada creación.
                 </p>
               </div>
-              <div className="bg-[#F5F0E8] p-6 rounded-lg">
-                <h3 className="font-semibold text-[#6B5344] mb-2">Artesanía</h3>
+              <div className="bg-[#fdf4e5] p-6 rounded-lg">
+                <h3 className="font-semibold text-[#7f5835] mb-2">Artesanía</h3>
                 <p className="text-[#8B7355] text-sm">
                   Trabajar con las manos, desde el corazón, respetando el proceso y el detalle.
                 </p>
               </div>
-              <div className="bg-[#F5F0E8] p-6 rounded-lg">
-                <h3 className="font-semibold text-[#6B5344] mb-2">Emoción</h3>
+              <div className="bg-[#fdf4e5] p-6 rounded-lg">
+                <h3 className="font-semibold text-[#7f5835] mb-2">Emoción</h3>
                 <p className="text-[#8B7355] text-sm">
                   Cada pieza cuenta una historia, celebra un vínculo, guarda un recuerdo.
                 </p>
               </div>
-              <div className="bg-[#F5F0E8] p-6 rounded-lg">
-                <h3 className="font-semibold text-[#6B5344] mb-2">Personalización</h3>
+              <div className="bg-[#fdf4e5] p-6 rounded-lg">
+                <h3 className="font-semibold text-[#7f5835] mb-2">Personalización</h3>
                 <p className="text-[#8B7355] text-sm">
                   Cada cliente es único, cada regalo también. Escucho, adapto y cuido cada detalle.
                 </p>
               </div>
-              <div className="bg-[#F5F0E8] p-6 rounded-lg md:col-span-2">
-                <h3 className="font-semibold text-[#6B5344] mb-2">Sostenibilidad</h3>
+              <div className="bg-[#fdf4e5] p-6 rounded-lg md:col-span-2">
+                <h3 className="font-semibold text-[#7f5835] mb-2">Sostenibilidad</h3>
                 <p className="text-[#8B7355] text-sm">
                   Respeto profundo por el medio ambiente. Uso de materiales naturales y reciclados.
                 </p>
@@ -108,7 +108,7 @@ export default function AboutPage() {
           </div>
 
           {/* Propósito */}
-          <div className="bg-[#6B5344] text-white p-8 rounded-lg text-center">
+          <div className="bg-[#7f5835] text-white p-8 rounded-lg text-center">
             <h2 className="text-2xl font-semibold mb-4">Mi propósito</h2>
             <p className="text-lg leading-relaxed opacity-90">
               Inspirar a las personas a regalar con alma y celebrar los momentos importantes

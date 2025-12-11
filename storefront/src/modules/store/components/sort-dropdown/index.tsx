@@ -23,7 +23,7 @@ const SortDropdown = ({ sortBy }: SortDropdownProps) => {
       name="sortBy"
       value={sortBy}
       onChange={handleChange}
-      className="text-sm border border-gray-200 rounded-lg px-3 py-2 bg-white text-[#6B5344] focus:outline-none focus:ring-2 focus:ring-[#6B5344]/20 cursor-pointer"
+      className="text-sm border border-gray-200 rounded-lg px-3 py-2 bg-white text-[#7f5835] focus:outline-none focus:ring-2 focus:ring-[#7f5835]/20 cursor-pointer"
     >
       <option value="created_at">Mas recientes</option>
       <option value="price_asc">Precio: Menor a Mayor</option>

@@ -4,6 +4,7 @@ import Hero from "@modules/home/components/hero"
 import CategoriesSection from "@modules/home/components/categories-section"
 import AboutSection from "@modules/home/components/about-section"
 import OccasionsSection from "@modules/home/components/occasions-section"
+import InstagramSection from "@modules/home/components/instagram-section"
 import { getRegion } from "@lib/data/regions"
 import { listProducts } from "@lib/data/products"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
@@ -96,6 +97,9 @@ export default async function Home(props: {
 
       {/* Occasions Section */}
       <OccasionsSection />
+
+      {/* Instagram Section */}
+      <InstagramSection />
 
       {/* Trust Section */}
       <section className="py-12 bg-[#6B5344]">

@@ -1,6 +1,7 @@
 import { getBaseURL } from "@lib/util/env"
 import { Metadata } from "next"
 import "styles/globals.css"
+import WhatsAppButton from "@modules/common/components/whatsapp-button"
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
@@ -17,6 +18,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="es" data-mode="light">
       <body>
         <main className="relative">{props.children}</main>
+        <WhatsAppButton />
       </body>
     </html>
   )

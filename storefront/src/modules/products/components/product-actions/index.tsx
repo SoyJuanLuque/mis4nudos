@@ -1,6 +1,7 @@
 "use client"
 
 import { addToCart } from "@lib/data/cart"
+import { useCart } from "@lib/context/cart-context"
 import { useIntersection } from "@lib/hooks/use-in-view"
 import { HttpTypes } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
@@ -35,6 +36,7 @@ export default function ProductActions({
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+  const { updateCart } = useCart()
 
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
@@ -126,11 +128,15 @@ export default function ProductActions({
 
     setIsAdding(true)
 
-    await addToCart({
+    const updatedCart = await addToCart({
       variantId: selectedVariant.id,
       quantity: 1,
       countryCode,
     })
+
+    if (updatedCart) {
+      updateCart(updatedCart)
+    }
 
     setIsAdding(false)
   }

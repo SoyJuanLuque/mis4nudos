@@ -119,7 +119,7 @@ export async function addToCart({
   variantId: string
   quantity: number
   countryCode: string
-}) {
+}): Promise<HttpTypes.StoreCart | null> {
   if (!variantId) {
     throw new Error("Missing variant ID when adding to cart")
   }
@@ -134,7 +134,7 @@ export async function addToCart({
     ...(await getAuthHeaders()),
   }
 
-  await sdk.store.cart
+  const result = await sdk.store.cart
     .createLineItem(
       cart.id,
       {
@@ -144,14 +144,18 @@ export async function addToCart({
       {},
       headers
     )
-    .then(async () => {
+    .then(async (response) => {
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
 
       const fulfillmentCacheTag = await getCacheTag("fulfillment")
       revalidateTag(fulfillmentCacheTag)
+
+      return response.cart
     })
     .catch(medusaError)
+
+  return result || null
 }
 
 export async function updateLineItem({

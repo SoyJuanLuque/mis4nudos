@@ -6,6 +6,7 @@ import {
   PopoverPanel,
   Transition,
 } from "@headlessui/react"
+import { useCart } from "@lib/context/cart-context"
 import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
@@ -18,10 +19,14 @@ import { usePathname } from "next/navigation"
 import { Fragment, useEffect, useRef, useState } from "react"
 
 const CartDropdown = ({
-  cart: cartState,
+  cart: initialCart,
 }: {
   cart?: HttpTypes.StoreCart | null
 }) => {
+  const { cart: contextCart, totalItems } = useCart()
+  // Use context cart if available, otherwise fall back to initial cart
+  const cartState = contextCart || initialCart
+
   const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
     undefined
   )
@@ -29,11 +34,6 @@ const CartDropdown = ({
 
   const open = () => setCartDropdownOpen(true)
   const close = () => setCartDropdownOpen(false)
-
-  const totalItems =
-    cartState?.items?.reduce((acc, item) => {
-      return acc + item.quantity
-    }, 0) || 0
 
   const subtotal = cartState?.subtotal ?? 0
   const itemRef = useRef<number>(totalItems || 0)

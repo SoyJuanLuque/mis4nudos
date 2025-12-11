@@ -23,11 +23,11 @@ const CategoryBar = ({ categories, regions }: CategoryBarProps) => {
   }
 
   return (
-    <div className="w-full bg-[#fdf4e5] border-b border-[#E5DED6]">
+    <div className="w-full bg-[#7f5835]">
       <div className="content-container">
         <nav className="flex items-center justify-between py-2">
           {/* Hamburguesa a la izquierda */}
-          <div className="flex items-center">
+          <div className="flex items-center text-[#fdf4e5]">
             <SideMenu regions={regions || []} />
           </div>
 
@@ -37,8 +37,8 @@ const CategoryBar = ({ categories, regions }: CategoryBarProps) => {
               href="/store"
               className={`px-3 py-1.5 text-sm font-medium rounded-full whitespace-nowrap transition-all duration-200 ${
                 pathname.includes('/store') && !pathname.includes('/categories')
-                  ? "bg-[#7f5835] text-white shadow-sm"
-                  : "text-[#7f5835] hover:bg-[#7f5835]/10"
+                  ? "bg-[#fdf4e5] text-[#7f5835] shadow-sm"
+                  : "text-[#fdf4e5] hover:bg-[#fdf4e5]/20"
               }`}
             >
               Todos
@@ -50,8 +50,8 @@ const CategoryBar = ({ categories, regions }: CategoryBarProps) => {
                 href={`/categories/${category.handle}`}
                 className={`px-3 py-1.5 text-sm font-medium rounded-full whitespace-nowrap transition-all duration-200 ${
                   isActive(category.handle!)
-                    ? "bg-[#7f5835] text-white shadow-sm"
-                    : "text-[#7f5835] hover:bg-[#7f5835]/10"
+                    ? "bg-[#fdf4e5] text-[#7f5835] shadow-sm"
+                    : "text-[#fdf4e5] hover:bg-[#fdf4e5]/20"
                 }`}
               >
                 {category.name}
@@ -60,9 +60,9 @@ const CategoryBar = ({ categories, regions }: CategoryBarProps) => {
           </div>
 
           {/* Mi Cuenta y Carrito a la derecha */}
-          <div className="flex items-center gap-x-1 text-[#7f5835] text-sm font-medium">
+          <div className="flex items-center gap-x-1 text-[#fdf4e5] text-sm font-medium">
             <LocalizedClientLink
-              className="hidden sm:block px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 hover:bg-[#7f5835]/10"
+              className="hidden sm:block px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 hover:bg-[#fdf4e5]/20"
               href="/account"
               data-testid="nav-account-link"
             >
@@ -72,7 +72,7 @@ const CategoryBar = ({ categories, regions }: CategoryBarProps) => {
             <Suspense
               fallback={
                 <LocalizedClientLink
-                  className="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 hover:bg-[#7f5835]/10"
+                  className="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 hover:bg-[#fdf4e5]/20"
                   href="/cart"
                   data-testid="nav-cart-link"
                 >

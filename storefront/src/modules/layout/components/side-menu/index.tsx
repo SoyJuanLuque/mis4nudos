@@ -85,15 +85,15 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                       </div>
 
                       {/* Menu items */}
-                      <ul className="flex flex-col gap-4">
+                      <ul className="flex flex-col gap-1">
                         {Object.entries(SideMenuItems).map(([name, href]) => {
                           const isCategory = href.includes('/categories/')
                           return (
                             <li key={name}>
                               <LocalizedClientLink
                                 href={href}
-                                className={`block py-2 text-[#7f5835] hover:text-[#8B7355] transition-colors ${
-                                  isCategory ? 'text-base pl-4 border-l-2 border-[#E5DDD0]' : 'text-lg font-medium'
+                                className={`block px-3 py-2.5 rounded-lg text-[#7f5835] transition-all duration-200 hover:bg-[#7f5835]/10 ${
+                                  isCategory ? 'text-base ml-2' : 'text-lg font-medium'
                                 }`}
                                 onClick={close}
                                 data-testid={`${name.toLowerCase().replace(' ', '-')}-link`}

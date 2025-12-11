@@ -82,7 +82,7 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <PopoverButton className="h-full">
           <LocalizedClientLink
-            className="hover:text-ui-fg-base"
+            className="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 hover:bg-[#7f5835]/10 text-[#7f5835]"
             href="/cart"
             data-testid="nav-cart-link"
           >{`Carrito (${totalItems})`}</LocalizedClientLink>

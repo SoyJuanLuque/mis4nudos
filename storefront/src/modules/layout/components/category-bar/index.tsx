@@ -60,9 +60,9 @@ const CategoryBar = ({ categories, regions }: CategoryBarProps) => {
           </div>
 
           {/* Mi Cuenta y Carrito a la derecha */}
-          <div className="flex items-center gap-x-4 text-[#7f5835] text-sm font-medium">
+          <div className="flex items-center gap-x-1 text-[#7f5835] text-sm font-medium">
             <LocalizedClientLink
-              className="hidden sm:block hover:text-[#8B7355] whitespace-nowrap"
+              className="hidden sm:block px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 hover:bg-[#7f5835]/10"
               href="/account"
               data-testid="nav-account-link"
             >
@@ -72,7 +72,7 @@ const CategoryBar = ({ categories, regions }: CategoryBarProps) => {
             <Suspense
               fallback={
                 <LocalizedClientLink
-                  className="hover:text-[#8B7355] whitespace-nowrap"
+                  className="px-3 py-1.5 rounded-full whitespace-nowrap transition-all duration-200 hover:bg-[#7f5835]/10"
                   href="/cart"
                   data-testid="nav-cart-link"
                 >

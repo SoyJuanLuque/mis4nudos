@@ -28,11 +28,11 @@ export default async function Home(props: {
     return null
   }
 
-  // Obtener productos (max 8)
+  // Obtener productos (max 10)
   const { response } = await listProducts({
     pageParam: 1,
     countryCode,
-    queryParams: { limit: 8 }
+    queryParams: { limit: 10 }
   })
 
   const products = response.products
@@ -68,13 +68,20 @@ export default async function Home(props: {
             </LocalizedClientLink>
           </div>
 
-          {/* Products Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {products.map((product) => (
-              <div key={product.id}>
-                <ProductPreview product={product} region={region} />
-              </div>
-            ))}
+          {/* Products Horizontal Scroll */}
+          <div className="relative">
+            <div className="flex gap-4 md:gap-6 overflow-x-auto pb-4 no-scrollbar snap-x snap-mandatory">
+              {products.map((product) => (
+                <div
+                  key={product.id}
+                  className="flex-shrink-0 w-[160px] sm:w-[200px] md:w-[240px] snap-start"
+                >
+                  <ProductPreview product={product} region={region} />
+                </div>
+              ))}
+            </div>
+            {/* Gradient fade en los bordes para indicar scroll */}
+            <div className="absolute right-0 top-0 bottom-4 w-8 bg-gradient-to-l from-[#F5F0E8] to-transparent pointer-events-none" />
           </div>
 
           {/* Mobile CTA */}

@@ -2,15 +2,15 @@
 
 import Image from "next/image"
 
-// Estas imágenes se pueden actualizar fácilmente
 // Sube las imágenes a /public/instagram/ con nombres 1.jpg, 2.jpg, etc.
+// Para añadir o quitar imágenes, modifica este array
 const instagramPosts = [
-  { id: 1, alt: "Macramé decorativo para pared" },
-  { id: 2, alt: "Llavero de macramé personalizado" },
-  { id: 3, alt: "Decoración macramé para boda" },
-  { id: 4, alt: "Colgante de macramé para plantas" },
-  { id: 5, alt: "Detalle de macramé para bebé" },
-  { id: 6, alt: "Pulsera de macramé artesanal" },
+  { id: 1, alt: "Creación de macramé artesanal" },
+  { id: 2, alt: "Detalle de macramé hecho a mano" },
+  { id: 3, alt: "Pieza de macramé para decoración" },
+  { id: 4, alt: "Trabajo artesanal de macramé" },
+  { id: 5, alt: "Macramé personalizado" },
+  { id: 6, alt: "Diseño único de macramé" },
 ]
 
 const InstagramSection = () => {
@@ -49,29 +49,13 @@ const InstagramSection = () => {
               rel="noopener noreferrer"
               className="relative aspect-square overflow-hidden rounded-lg group"
             >
-              {/* Placeholder - reemplazar con imágenes reales */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#F5F0E8] to-[#E8E0D5] flex items-center justify-center">
-                <div className="text-center p-4">
-                  <svg
-                    className="w-8 h-8 mx-auto text-[#6B5344]/30 mb-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-xs text-[#6B5344]/50">Imagen {post.id}</span>
-                </div>
-              </div>
-
-              {/* Si tienes imágenes, descomenta esto y comenta el div anterior:
               <Image
                 src={`/instagram/${post.id}.jpg`}
                 alt={post.alt}
                 fill
-                className="object-cover"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
               />
-              */}
 
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-[#6B5344]/0 group-hover:bg-[#6B5344]/60 transition-all duration-300 flex items-center justify-center">

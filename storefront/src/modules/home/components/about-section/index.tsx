@@ -1,19 +1,23 @@
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import Image from "next/image"
 
 const AboutSection = () => {
   return (
     <section className="py-16 bg-[#F5F0E8]">
       <div className="content-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden">
-            <Image
-              src="/about-preview.jpg"
-              alt="Lidia creando macramé"
-              fill
-              className="object-cover"
-            />
+          {/* Video */}
+          <div className="relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden bg-[#6B5344]/10">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/about-video.mp4" type="video/mp4" />
+              {/* Fallback si el video no carga */}
+              Tu navegador no soporta videos.
+            </video>
             {/* Overlay with quote */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#6B5344]/90 to-transparent p-6">
               <p className="text-white text-lg italic">

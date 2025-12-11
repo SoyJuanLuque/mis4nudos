@@ -22,7 +22,7 @@ export default async function Nav() {
         <div className="content-container py-4 flex items-center justify-center">
           <LocalizedClientLink
             href="/"
-            className="hover:opacity-80 transition-opacity flex items-center gap-3"
+            className="hover:opacity-80 transition-opacity flex items-center gap-1"
             data-testid="nav-store-link"
           >
             {/* Icono del logo */}

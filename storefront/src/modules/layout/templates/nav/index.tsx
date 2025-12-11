@@ -22,7 +22,7 @@ export default async function Nav() {
         {/* Imagen de fondo */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/foto-header.svg')" }}
+          style={{ backgroundImage: "url('/foto-header.png')" }}
         />
         {/* Overlay semi-transparente para que el logo se vea bien */}
         <div className="absolute inset-0 bg-white/80" />

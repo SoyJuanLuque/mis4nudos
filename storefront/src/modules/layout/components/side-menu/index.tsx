@@ -69,7 +69,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                     <div>
                       <div className="flex justify-between items-center mb-8">
                         <Image
-                          src="/logo.png"
+                          src="/logo-2.png"
                           alt="Mis 4 Nudos"
                           width={160}
                           height={64}

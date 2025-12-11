@@ -17,20 +17,30 @@ export default async function Nav() {
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
-      {/* Header solo con logo grande centrado */}
+      {/* Header con icono + letras del logo */}
       <header className="relative mx-auto bg-white border-b border-ui-border-base">
-        <div className="content-container py-6 flex items-center justify-center">
+        <div className="content-container py-4 flex items-center justify-center">
           <LocalizedClientLink
             href="/"
-            className="hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 transition-opacity flex items-center gap-3"
             data-testid="nav-store-link"
           >
+            {/* Icono del logo */}
             <Image
-              src="/logo-2.png"
+              src="/Solo-Logo-Mis4nudos.png"
               alt="Mis 4 Nudos"
-              width={320}
-              height={120}
-              className="h-24 sm:h-28 w-auto"
+              width={80}
+              height={80}
+              className="h-16 sm:h-20 w-auto"
+              priority
+            />
+            {/* Letras del logo */}
+            <Image
+              src="/logo-solo-letra.png"
+              alt="Mis 4 Nudos"
+              width={200}
+              height={60}
+              className="h-12 sm:h-16 w-auto"
               priority
             />
           </LocalizedClientLink>

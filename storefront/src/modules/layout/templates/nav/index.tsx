@@ -17,58 +17,28 @@ export default async function Nav() {
 
   return (
     <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-20 mx-auto border-b duration-200 bg-white border-ui-border-base">
-        <nav className="content-container txt-xsmall-plus text-[#6B5344] flex items-center justify-between w-full h-full text-small-regular">
-          {/* Hamburguesa a la izquierda - visible en todas las pantallas */}
-          <div className="flex items-center gap-x-4">
-            <SideMenu regions={regions} />
-          </div>
-
-          {/* Logo centrado */}
-          <div className="absolute left-1/2 transform -translate-x-1/2">
-            <LocalizedClientLink
-              href="/"
-              className="hover:opacity-80 transition-opacity"
-              data-testid="nav-store-link"
-            >
-              <Image
-                src="/logo-2.png"
-                alt="Mis 4 Nudos"
-                width={200}
-                height={80}
-                className="h-16 w-auto"
-                priority
-              />
-            </LocalizedClientLink>
-          </div>
-
-          {/* Mi Cuenta y Carrito a la derecha */}
-          <div className="flex items-center gap-x-4 sm:gap-x-6 h-full">
-            <LocalizedClientLink
-              className="hidden sm:block hover:text-[#8B7355] font-medium"
-              href="/account"
-              data-testid="nav-account-link"
-            >
-              Mi Cuenta
-            </LocalizedClientLink>
-
-            <Suspense
-              fallback={
-                <LocalizedClientLink
-                  className="hover:text-[#8B7355] flex gap-2 font-medium"
-                  href="/cart"
-                  data-testid="nav-cart-link"
-                >
-                  Carrito (0)
-                </LocalizedClientLink>
-              }
-            >
-              <CartButton />
-            </Suspense>
-          </div>
-        </nav>
+      {/* Header solo con logo grande centrado */}
+      <header className="relative mx-auto bg-white border-b border-ui-border-base">
+        <div className="content-container py-6 flex items-center justify-center">
+          <LocalizedClientLink
+            href="/"
+            className="hover:opacity-80 transition-opacity"
+            data-testid="nav-store-link"
+          >
+            <Image
+              src="/logo-2.png"
+              alt="Mis 4 Nudos"
+              width={320}
+              height={120}
+              className="h-24 sm:h-28 w-auto"
+              priority
+            />
+          </LocalizedClientLink>
+        </div>
       </header>
-      <CategoryBar categories={categories} />
+
+      {/* Barra: Hamburguesa | Categorías | Mi Cuenta + Carrito */}
+      <CategoryBar categories={categories} regions={regions} />
     </div>
   )
 }

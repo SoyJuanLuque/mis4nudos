@@ -171,6 +171,26 @@ INSERT INTO product_sales_channel (id, product_id, sales_channel_id, created_at,
 VALUES ('psc_xxx', 'prod_xxx', 'sc_01KC13QRNQVRGZR1KBZDJZSB99', NOW(), NOW());
 ```
 
+## Assets de Marca (Logos y Favicons)
+
+### Logos Disponibles en `/storefront/public/`
+| Archivo | Uso | Descripción |
+|---------|-----|-------------|
+| `logo-2.png` | Header, Footer, Side Menu | Logo principal para fondos claros |
+| `logo-blanco.png` | Fondos oscuros | Logo en blanco para usar sobre fondos oscuros |
+| `favicon.ico` | Favicon general | Icono de pestaña del navegador |
+
+### Uso de Logos según Contexto
+- **Fondos claros** (blanco, beige, etc.): Usar `logo-2.png`
+- **Fondos oscuros** (negro, marrón oscuro, etc.): Usar `logo-blanco.png`
+- **Dark Mode del navegador**: Considerar `logo-blanco.png` y favicon alternativo
+
+### Paleta de Colores de Marca
+- **Marrón principal**: `#6B5344`
+- **Marrón claro**: `#8B7355`
+- **Beige fondo**: `#F5F1ED`, `#F5F0E8`
+- **Beige borde**: `#E5DED6`, `#E5DDD0`
+
 ## Traducciones Implementadas (Español)
 
 El storefront está completamente en español:

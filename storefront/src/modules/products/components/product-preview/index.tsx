@@ -10,10 +10,12 @@ export default async function ProductPreview({
   product,
   isFeatured,
   region,
+  showPrice = true,
 }: {
   product: HttpTypes.StoreProduct
   isFeatured?: boolean
   region: HttpTypes.StoreRegion
+  showPrice?: boolean
 }) {
   // const pricedProduct = await listProducts({
   //   regionId: region.id,
@@ -45,10 +47,12 @@ export default async function ProductPreview({
           >
             {product.title}
           </Text>
-          {/* Precio pequeño a la derecha */}
-          <div className="flex justify-end mt-1">
-            {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
-          </div>
+          {/* Precio pequeño a la derecha (oculto en home) */}
+          {showPrice && cheapestPrice && (
+            <div className="flex justify-end mt-1">
+              <PreviewPrice price={cheapestPrice} />
+            </div>
+          )}
         </div>
       </div>
     </LocalizedClientLink>

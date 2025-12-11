@@ -76,7 +76,7 @@ export default async function Home(props: {
                   key={product.id}
                   className="flex-shrink-0 w-[160px] sm:w-[200px] md:w-[240px] snap-start"
                 >
-                  <ProductPreview product={product} region={region} />
+                  <ProductPreview product={product} region={region} showPrice={false} />
                 </div>
               ))}
             </div>

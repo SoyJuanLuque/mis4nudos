@@ -46,7 +46,7 @@ export const metadata: Metadata = {
       "Creaciones artesanales de macramé hechas a mano con amor. Regalos personalizados para bodas, comuniones, bautizos y momentos especiales.",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://mis4nudos.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "Mis 4 Nudos - Macramé Artesanal",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: "Mis 4 Nudos | Macramé Artesanal",
     description:
       "Creaciones artesanales de macramé hechas a mano con amor. Regalos personalizados para bodas, comuniones y momentos especiales.",
-    images: ["/og-image.png"],
+    images: ["https://mis4nudos.com/og-image.png"],
     creator: "@mis4nudos",
   },
   // Robots

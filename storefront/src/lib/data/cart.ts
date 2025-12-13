@@ -50,6 +50,29 @@ export async function retrieveCart(cartId?: string, fields?: string) {
     .catch(() => null)
 }
 
+/**
+ * Retrieves a cart without cache - use after cart modifications
+ */
+async function retrieveCartFresh(cartId: string): Promise<HttpTypes.StoreCart | null> {
+  const fields = "*items, *region, *items.product, *items.variant, *items.thumbnail, *items.metadata, +items.total, *promotions, +shipping_methods.name"
+
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+
+  return await sdk.client
+    .fetch<HttpTypes.StoreCartResponse>(`/store/carts/${cartId}`, {
+      method: "GET",
+      query: {
+        fields
+      },
+      headers,
+      cache: "no-store",
+    })
+    .then(({ cart }: { cart: HttpTypes.StoreCart }) => cart)
+    .catch(() => null)
+}
+
 export async function getOrSetCart(countryCode: string) {
   const region = await getRegion(countryCode)
 
@@ -141,31 +164,28 @@ export async function addToCart({
     ...(await getAuthHeaders()),
   }
 
-  const result = await sdk.store.cart
+  await sdk.store.cart
     .createLineItem(
       cart.id,
       {
         variant_id: variantId,
         quantity,
       },
-      {
-        // Request expanded items to update the cart context correctly
-        fields: "*items,*items.product,*items.variant,*items.thumbnail,+items.total,*region"
-      },
+      {},
       headers
     )
-    .then(async (response) => {
+    .then(async () => {
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
 
       const fulfillmentCacheTag = await getCacheTag("fulfillment")
       revalidateTag(fulfillmentCacheTag)
-
-      return response.cart
     })
     .catch(medusaError)
 
-  return result || null
+  // Always fetch the full cart with all fields after modification (no cache)
+  const updatedCart = await retrieveCartFresh(cart.id)
+  return updatedCart
 }
 
 export async function updateLineItem({
@@ -189,28 +209,26 @@ export async function updateLineItem({
     ...(await getAuthHeaders()),
   }
 
-  const result = await sdk.store.cart
+  await sdk.store.cart
     .updateLineItem(
       cartId,
       lineId,
       { quantity },
-      {
-        fields: "*items,*items.product,*items.variant,*items.thumbnail,+items.total,*region"
-      },
+      {},
       headers
     )
-    .then(async (response) => {
+    .then(async () => {
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
 
       const fulfillmentCacheTag = await getCacheTag("fulfillment")
       revalidateTag(fulfillmentCacheTag)
-
-      return response.cart
     })
     .catch(medusaError)
 
-  return result || null
+  // Always fetch the full cart with all fields after modification (no cache)
+  const updatedCart = await retrieveCartFresh(cartId)
+  return updatedCart
 }
 
 export async function deleteLineItem(lineId: string): Promise<HttpTypes.StoreCart | null> {
@@ -239,8 +257,8 @@ export async function deleteLineItem(lineId: string): Promise<HttpTypes.StoreCar
     })
     .catch(medusaError)
 
-  // Fetch the updated cart with all fields
-  const updatedCart = await retrieveCart(cartId)
+  // Fetch the updated cart with all fields (no cache)
+  const updatedCart = await retrieveCartFresh(cartId)
   return updatedCart
 }
 

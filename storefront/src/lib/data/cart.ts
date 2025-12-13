@@ -60,8 +60,8 @@ async function retrieveCartFresh(cartId: string): Promise<HttpTypes.StoreCart | 
     ...(await getAuthHeaders()),
   }
 
-  return await sdk.client
-    .fetch<HttpTypes.StoreCartResponse>(`/store/carts/${cartId}`, {
+  try {
+    const response = await sdk.client.fetch<HttpTypes.StoreCartResponse>(`/store/carts/${cartId}`, {
       method: "GET",
       query: {
         fields
@@ -69,8 +69,12 @@ async function retrieveCartFresh(cartId: string): Promise<HttpTypes.StoreCart | 
       headers,
       cache: "no-store",
     })
-    .then(({ cart }: { cart: HttpTypes.StoreCart }) => cart)
-    .catch(() => null)
+    console.log("[retrieveCartFresh] Cart fetched:", cartId, "items:", response.cart?.items?.length)
+    return response.cart
+  } catch (error) {
+    console.error("[retrieveCartFresh] Error:", error)
+    return null
+  }
 }
 
 export async function getOrSetCart(countryCode: string) {
@@ -164,8 +168,8 @@ export async function addToCart({
     ...(await getAuthHeaders()),
   }
 
-  await sdk.store.cart
-    .createLineItem(
+  try {
+    await sdk.store.cart.createLineItem(
       cart.id,
       {
         variant_id: variantId,
@@ -174,17 +178,21 @@ export async function addToCart({
       {},
       headers
     )
-    .then(async () => {
-      const cartCacheTag = await getCacheTag("carts")
-      revalidateTag(cartCacheTag)
+    console.log("[addToCart] Line item created for cart:", cart.id)
 
-      const fulfillmentCacheTag = await getCacheTag("fulfillment")
-      revalidateTag(fulfillmentCacheTag)
-    })
-    .catch(medusaError)
+    const cartCacheTag = await getCacheTag("carts")
+    revalidateTag(cartCacheTag)
+
+    const fulfillmentCacheTag = await getCacheTag("fulfillment")
+    revalidateTag(fulfillmentCacheTag)
+  } catch (error) {
+    console.error("[addToCart] Error creating line item:", error)
+    throw error
+  }
 
   // Always fetch the full cart with all fields after modification (no cache)
   const updatedCart = await retrieveCartFresh(cart.id)
+  console.log("[addToCart] Returning cart with items:", updatedCart?.items?.length)
   return updatedCart
 }
 

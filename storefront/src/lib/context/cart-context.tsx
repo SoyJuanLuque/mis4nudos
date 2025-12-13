@@ -28,6 +28,7 @@ export function CartProvider({
   }, [])
 
   const updateCart = useCallback((newCart: HttpTypes.StoreCart | null) => {
+    console.log("[CartContext] updateCart called, items:", newCart?.items?.length)
     setCartState(newCart)
   }, [])
 

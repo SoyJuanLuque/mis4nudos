@@ -128,17 +128,26 @@ export default function ProductActions({
 
     setIsAdding(true)
 
-    const updatedCart = await addToCart({
-      variantId: selectedVariant.id,
-      quantity: 1,
-      countryCode,
-    })
+    try {
+      const updatedCart = await addToCart({
+        variantId: selectedVariant.id,
+        quantity: 1,
+        countryCode,
+      })
 
-    if (updatedCart) {
-      updateCart(updatedCart)
+      console.log("[handleAddToCart] Received cart:", updatedCart?.id, "items:", updatedCart?.items?.length)
+
+      if (updatedCart) {
+        updateCart(updatedCart)
+        console.log("[handleAddToCart] Context updated")
+      } else {
+        console.error("[handleAddToCart] No cart received!")
+      }
+    } catch (error) {
+      console.error("[handleAddToCart] Error:", error)
+    } finally {
+      setIsAdding(false)
     }
-
-    setIsAdding(false)
   }
 
   return (

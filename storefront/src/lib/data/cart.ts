@@ -50,7 +50,6 @@ export async function retrieveCart(cartId?: string, fields?: string) {
     .catch(() => null)
 }
 
-
 export async function getOrSetCart(countryCode: string) {
   const region = await getRegion(countryCode)
 
@@ -58,20 +57,13 @@ export async function getOrSetCart(countryCode: string) {
     throw new Error(`Region not found for country code: ${countryCode}`)
   }
 
-  // Include completed_at to detect completed carts
-  let cart = await retrieveCart(undefined, 'id,region_id,completed_at')
+  let cart = await retrieveCart(undefined, 'id,region_id')
 
   const headers = {
     ...(await getAuthHeaders()),
   }
 
-  // If cart is completed or doesn't exist, create a new one
-  if (!cart || cart.completed_at) {
-    // Remove old cart cookie if it exists
-    if (cart?.completed_at) {
-      removeCartId()
-    }
-
+  if (!cart) {
     const cartResp = await sdk.store.cart.create(
       { region_id: region.id },
       {},
@@ -127,7 +119,7 @@ export async function addToCart({
   variantId: string
   quantity: number
   countryCode: string
-}): Promise<HttpTypes.StoreCart | null> {
+}) {
   if (!variantId) {
     throw new Error("Missing variant ID when adding to cart")
   }
@@ -142,7 +134,7 @@ export async function addToCart({
     ...(await getAuthHeaders()),
   }
 
-  const response = await sdk.store.cart
+  await sdk.store.cart
     .createLineItem(
       cart.id,
       {
@@ -152,18 +144,14 @@ export async function addToCart({
       {},
       headers
     )
-    .then(async (res) => {
+    .then(async () => {
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
 
       const fulfillmentCacheTag = await getCacheTag("fulfillment")
       revalidateTag(fulfillmentCacheTag)
-
-      return res.cart
     })
     .catch(medusaError)
-
-  return response || null
 }
 
 export async function updateLineItem({
@@ -172,7 +160,7 @@ export async function updateLineItem({
 }: {
   lineId: string
   quantity: number
-}): Promise<HttpTypes.StoreCart | null> {
+}) {
   if (!lineId) {
     throw new Error("Missing lineItem ID when updating line item")
   }
@@ -187,29 +175,19 @@ export async function updateLineItem({
     ...(await getAuthHeaders()),
   }
 
-  const response = await sdk.store.cart
-    .updateLineItem(
-      cartId,
-      lineId,
-      { quantity },
-      {},
-      headers
-    )
-    .then(async (res) => {
+  await sdk.store.cart
+    .updateLineItem(cartId, lineId, { quantity }, {}, headers)
+    .then(async () => {
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
 
       const fulfillmentCacheTag = await getCacheTag("fulfillment")
       revalidateTag(fulfillmentCacheTag)
-
-      return res.cart
     })
     .catch(medusaError)
-
-  return response || null
 }
 
-export async function deleteLineItem(lineId: string): Promise<HttpTypes.StoreCart | null> {
+export async function deleteLineItem(lineId: string) {
   if (!lineId) {
     throw new Error("Missing lineItem ID when deleting line item")
   }
@@ -224,20 +202,16 @@ export async function deleteLineItem(lineId: string): Promise<HttpTypes.StoreCar
     ...(await getAuthHeaders()),
   }
 
-  const response = await sdk.store.cart
+  await sdk.store.cart
     .deleteLineItem(cartId, lineId, headers)
-    .then(async (res) => {
+    .then(async () => {
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
 
       const fulfillmentCacheTag = await getCacheTag("fulfillment")
       revalidateTag(fulfillmentCacheTag)
-
-      return res.parent
     })
     .catch(medusaError)
-
-  return response || null
 }
 
 export async function setShippingMethod({

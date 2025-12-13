@@ -2,7 +2,6 @@
 
 import { Table, Text, clx } from "@medusajs/ui"
 import { updateLineItem } from "@lib/data/cart"
-import { useCart } from "@lib/context/cart-context"
 import { HttpTypes } from "@medusajs/types"
 import CartItemSelect from "@modules/cart/components/cart-item-select"
 import ErrorMessage from "@modules/checkout/components/error-message"
@@ -24,25 +23,21 @@ type ItemProps = {
 const Item = ({ item, type = "full", currencyCode }: ItemProps) => {
   const [updating, setUpdating] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const { updateCart } = useCart()
 
   const changeQuantity = async (quantity: number) => {
     setError(null)
     setUpdating(true)
 
-    try {
-      const updatedCart = await updateLineItem({
-        lineId: item.id,
-        quantity,
+    await updateLineItem({
+      lineId: item.id,
+      quantity,
+    })
+      .catch((err) => {
+        setError(err.message)
       })
-      if (updatedCart) {
-        updateCart(updatedCart)
-      }
-    } catch (err: any) {
-      setError(err.message)
-    } finally {
-      setUpdating(false)
-    }
+      .finally(() => {
+        setUpdating(false)
+      })
   }
 
   // TODO: Update this to grab the actual max inventory

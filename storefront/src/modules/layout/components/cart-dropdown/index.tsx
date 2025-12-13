@@ -27,11 +27,6 @@ const CartDropdown = ({
   // Use context cart if available, otherwise fall back to initial cart
   const cartState = contextCart || initialCart
 
-  // Debug: log cart state changes
-  useEffect(() => {
-    console.log("[CartDropdown] totalItems:", totalItems, "contextCart items:", contextCart?.items?.length, "initialCart items:", initialCart?.items?.length)
-  }, [totalItems, contextCart, initialCart])
-
   const [activeTimer, setActiveTimer] = useState<NodeJS.Timer | undefined>(
     undefined
   )

@@ -50,32 +50,6 @@ export async function retrieveCart(cartId?: string, fields?: string) {
     .catch(() => null)
 }
 
-/**
- * Retrieves a cart without cache - use after cart modifications
- */
-async function retrieveCartFresh(cartId: string): Promise<HttpTypes.StoreCart | null> {
-  const fields = "*items, *region, *items.product, *items.variant, *items.thumbnail, *items.metadata, +items.total, *promotions, +shipping_methods.name"
-
-  const headers = {
-    ...(await getAuthHeaders()),
-  }
-
-  try {
-    const response = await sdk.client.fetch<HttpTypes.StoreCartResponse>(`/store/carts/${cartId}`, {
-      method: "GET",
-      query: {
-        fields
-      },
-      headers,
-      cache: "no-store",
-    })
-    console.log("[retrieveCartFresh] Cart fetched:", cartId, "items:", response.cart?.items?.length)
-    return response.cart
-  } catch (error) {
-    console.error("[retrieveCartFresh] Error:", error)
-    return null
-  }
-}
 
 export async function getOrSetCart(countryCode: string) {
   const region = await getRegion(countryCode)
@@ -168,8 +142,8 @@ export async function addToCart({
     ...(await getAuthHeaders()),
   }
 
-  try {
-    const response = await sdk.store.cart.createLineItem(
+  const response = await sdk.store.cart
+    .createLineItem(
       cart.id,
       {
         variant_id: variantId,
@@ -178,29 +152,18 @@ export async function addToCart({
       {},
       headers
     )
-    console.log("[addToCart] Line item created for cart:", cart.id, "response items:", response.cart?.items?.length)
+    .then(async (res) => {
+      const cartCacheTag = await getCacheTag("carts")
+      revalidateTag(cartCacheTag)
 
-    const cartCacheTag = await getCacheTag("carts")
-    revalidateTag(cartCacheTag)
+      const fulfillmentCacheTag = await getCacheTag("fulfillment")
+      revalidateTag(fulfillmentCacheTag)
 
-    const fulfillmentCacheTag = await getCacheTag("fulfillment")
-    revalidateTag(fulfillmentCacheTag)
+      return res.cart
+    })
+    .catch(medusaError)
 
-    // If response has items, use it. Otherwise fetch fresh
-    if (response.cart?.items && response.cart.items.length > 0) {
-      console.log("[addToCart] Using response cart with", response.cart.items.length, "items")
-      return response.cart
-    }
-
-    // Fallback: fetch fresh cart
-    console.log("[addToCart] Response cart has no items, fetching fresh...")
-    const updatedCart = await retrieveCartFresh(cart.id)
-    console.log("[addToCart] Fresh cart has", updatedCart?.items?.length, "items")
-    return updatedCart
-  } catch (error) {
-    console.error("[addToCart] Error:", error)
-    throw error
-  }
+  return response || null
 }
 
 export async function updateLineItem({
@@ -224,7 +187,7 @@ export async function updateLineItem({
     ...(await getAuthHeaders()),
   }
 
-  await sdk.store.cart
+  const response = await sdk.store.cart
     .updateLineItem(
       cartId,
       lineId,
@@ -232,18 +195,18 @@ export async function updateLineItem({
       {},
       headers
     )
-    .then(async () => {
+    .then(async (res) => {
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
 
       const fulfillmentCacheTag = await getCacheTag("fulfillment")
       revalidateTag(fulfillmentCacheTag)
+
+      return res.cart
     })
     .catch(medusaError)
 
-  // Always fetch the full cart with all fields after modification (no cache)
-  const updatedCart = await retrieveCartFresh(cartId)
-  return updatedCart
+  return response || null
 }
 
 export async function deleteLineItem(lineId: string): Promise<HttpTypes.StoreCart | null> {
@@ -261,20 +224,20 @@ export async function deleteLineItem(lineId: string): Promise<HttpTypes.StoreCar
     ...(await getAuthHeaders()),
   }
 
-  await sdk.store.cart
+  const response = await sdk.store.cart
     .deleteLineItem(cartId, lineId, headers)
-    .then(async () => {
+    .then(async (res) => {
       const cartCacheTag = await getCacheTag("carts")
       revalidateTag(cartCacheTag)
 
       const fulfillmentCacheTag = await getCacheTag("fulfillment")
       revalidateTag(fulfillmentCacheTag)
+
+      return res.parent
     })
     .catch(medusaError)
 
-  // Fetch the updated cart with all fields (no cache)
-  const updatedCart = await retrieveCartFresh(cartId)
-  return updatedCart
+  return response || null
 }
 
 export async function setShippingMethod({
